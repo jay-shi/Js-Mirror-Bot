@@ -2,6 +2,8 @@
 
 This NodeJs app can record keystroke, mouseclick and mousedrag, and create automated simulation. 
 
+NOTE: This app currently only works for MacOS. 
+
 
 Instruction:
   1. git clone this app
