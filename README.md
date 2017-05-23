@@ -1,3 +1,3 @@
 # desktop-bot
 
-This NodeJs app can record user' motion and simulate it again. 
+This NodeJs app can record keystroke, mouseclick and mousedrag, and create automated simulation. 
