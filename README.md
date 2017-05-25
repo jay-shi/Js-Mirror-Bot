@@ -23,13 +23,16 @@ Credits:
  
  Here are the links of used modules: 
   
- Iohook npm page: https://www.npmjs.com/package/iohook
+ Iohook npm page: https://www.npmjs.com/package/iohook;
+ 
  Iohook github page: https://github.com/WilixLead/iohook;
 
  Robotjs npm page: https://www.npmjs.com/package/robotjs;
+ 
  Robotjs github page: https://github.com/octalmage/robotjs;
  
  sleep npm page: https://www.npmjs.com/package/sleep; 
+ 
  sleep github page: https://github.com/erikdubbelboer/node-sleep;
  
   
