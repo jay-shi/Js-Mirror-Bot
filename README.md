@@ -16,12 +16,16 @@ Instruction:
   
   
 Credits:
+
+ This project is built based on NodeJS v6.10.3. Thank nodejs team for making such amazing framework.
  
  The node modules/packages I used for this project are iohook, sleep and robotjs. 
  
  Thank @WilixLead, @OctalMage, @ErikDubbelboer for making such great modules/packages!
  
- Here are the links of used modules: 
+ Here are the links of used modules/framework: 
+ 
+ Nodejs main page: https://nodejs.org/en/;
   
  Iohook npm page: https://www.npmjs.com/package/iohook;
  
