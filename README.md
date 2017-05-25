@@ -1,9 +1,10 @@
-# desktop-bot
+# Mirror-Bot
 
-This NodeJs app can record keystroke, mouseclick and mousedrag, and create automated simulation. 
+This NodeJs-based project can record keystroke, mouseclick and mousedrag, and then create automated simulation. 
 
-NOTE: This app currently only works for MacOS. 
+It can be used for automation test, game bot or even tricking friends into thinking their computer has malware.
 
+NOTE: This app currently only works for MacOS, but the windows and linux version will sonn be implemented.
 
 Instruction:
   1. git clone this app
