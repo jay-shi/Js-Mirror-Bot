@@ -13,3 +13,27 @@ Instruction:
   5. stroke 'tab' key to stop recording
   6. exit the recording by press 'ctrl+c'
   7. command 'node output' to start automation
+  
+  
+Credits:
+ 
+ The node modules/packages I used for this project are iohook, sleep and robotjs. 
+ 
+ Thank @WilixLead, @OctalMage, @ErikDubbelboer for making such great modules/packages!
+ 
+ Here are the links of used modules: 
+  
+ Iohook npm page: https://www.npmjs.com/package/iohook
+ Iohook github page: https://github.com/WilixLead/iohook;
+
+ Robotjs npm page: https://www.npmjs.com/package/robotjs;
+ Robotjs github page: https://github.com/octalmage/robotjs;
+ 
+ sleep npm page: https://www.npmjs.com/package/sleep; 
+ sleep github page: https://github.com/erikdubbelboer/node-sleep;
+ 
+  
+  
+  
+
+
