@@ -1,7 +1,7 @@
 var fs = require('fs');
 var robot = require('robotjs');
 var sleep = require('sleep');
-var data = fs.readFileSync('bot_array/bot.txt');
+var data = fs.readFileSync('bot.txt');
 var conversion= require('./conversion');
 var captureMotion = JSON.parse(data);
 
