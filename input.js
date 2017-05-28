@@ -11,7 +11,7 @@ var eventEmitter = new events.EventEmitter();
 var mouse, currenttime, duration, data, interval;
 var dragFlag = true;
 var fs = require('fs');
-var writeStream = fs.createWriteStream('bot_array/bot.txt');
+var writeStream = fs.createWriteStream('bot.txt');
 
 
 //initialize a 4 row array to record coordinates, key character, interval time
