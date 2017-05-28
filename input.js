@@ -43,6 +43,9 @@ hook.on("keydown", (event)=>{
 
     interval= currenttime - baseTime;
 
+    //prevent zero time
+    if(interval == 0 ) interval =1;
+
     //maping data to array
     captureMotion.push([mouse.x,mouse.y,interval,event.rawcode]);
 
@@ -63,6 +66,9 @@ hook.addListener("mousedown", (event)=>{
     currenttime = getTime();
 
     interval= currenttime - baseTime;
+
+    //prevent zero time
+    if(interval == 0 ) interval =1;
 
     //set the keycode of mouseclick as 127
     captureMotion.push([mouse.x,mouse.y,interval,127]);
