@@ -18,7 +18,7 @@ var writeStream = fs.createWriteStream('bot.txt');
 //x-coordinate, y-coordinate, time from last press, button character thats being pressed
 var captureMotion = [
    
-    [600,350,0,'char']
+    [600,350,1,'char']
 ];
 
 //----------------------------------------------------------------------//
@@ -102,6 +102,9 @@ hook.addListener('mouseup', event=> {
 
     if( dragFlag == false){
 
+        //prevent zero time
+        if(interval == 0 ) interval =1;
+
         captureMotion.push([mouse.x, mouse.y, 100 ,128]);
 
         baseTime = getTime();
@@ -127,9 +130,13 @@ eventEmitter.once('stopListening',()=>{
 
     writeStream.on('finish', function(){
         console.log('writing completed');
+        process.exitCode = 1;
+        process.exit();
     });
     
     writeStream.on('error', function(err){
+        process.exitCode = 1;
+        process.exit();
         console.log(err.stack);
     });
 
