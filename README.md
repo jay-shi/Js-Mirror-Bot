@@ -6,6 +6,8 @@ It can be used for automation test, game bot or even tricking friends into think
 
 NOTE: This app currently only works for MacOS, but the windows and linux version will sonn be implemented.
 
+Instruction video will be uploaded soon.
+
 Instruction:
   1. git clone this app
   2. go (cd) to the directory root of this app
