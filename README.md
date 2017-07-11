@@ -20,6 +20,13 @@ It can be used for automation test, game bot or even tricking friends into think
   1. exit the recording by press `ctrl+c`
   1. command `node output` to start automation
   
+## RoadMap:
+  1. Add Instruction and Demo Videos
+  1. Implement mousedrag function
+  1. Fix bugs caused by incorrect event listening (mistake mouseclick with mouseDrag)
+  1. GUI
+  1. Migrate to Java platform
+  
   
 ## Credits:
 
