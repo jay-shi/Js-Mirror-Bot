@@ -38,19 +38,13 @@ It can be used for automation test, game bot or even tricking friends into think
  
  **Here are the links of used modules/framework:** 
  
- * Nodejs main page: https://nodejs.org/en/;
+ * [Nodejs](https://nodejs.org/en/)
   
- * Iohook npm page: https://www.npmjs.com/package/iohook;
+ * [Iohook](https://github.com/WilixLead/iohook)
  
- * Iohook github page: https://github.com/WilixLead/iohook;
-
- * Robotjs npm page: https://www.npmjs.com/package/robotjs;
+ * [Robotjs](https://github.com/octalmage/robotjs)
  
- * Robotjs github page: https://github.com/octalmage/robotjs;
- 
- * sleep npm page: https://www.npmjs.com/package/sleep; 
- 
- * sleep github page: https://github.com/erikdubbelboer/node-sleep;
+ * [sleep](https://github.com/erikdubbelboer/node-sleep)
  
   
   
