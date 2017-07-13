@@ -87,7 +87,9 @@ hook.addListener('mousedrag', (event)=>{
 
         interval= currenttime - baseTime;
 
-        captureMotion.push([event.x, event.y, interval ,128]);
+        if(interval == 0 ) interval =1;
+
+        captureMotion.push([event.x, event.y, interval ,127]); //change this to mouseclick temporily, since the mouseclick events often is listened wrongly as mousedrag
     }
 
     dragFlag = false;
@@ -122,6 +124,8 @@ eventEmitter.once('stopListening',()=>{
     //stop listening to events
     eventEmitter.removeAllListeners('keydown');
     eventEmitter.removeAllListeners('mousedown');
+    eventEmitter.removeAllListeners('mouseup');
+    eventEmitter.removeAllListeners('mousedrag');
 
 	var buffer = new Buffer.from(JSON.stringify(captureMotion));
 
@@ -130,13 +134,12 @@ eventEmitter.once('stopListening',()=>{
 
     writeStream.on('finish', function(){
         console.log('writing completed');
-        process.exitCode = 1;
-        process.exit();
+        hook.stop();
+        process.exit(0);
     });
     
     writeStream.on('error', function(err){
-        process.exitCode = 1;
-        process.exit();
+        hook.stop();
         console.log(err.stack);
     });
 
