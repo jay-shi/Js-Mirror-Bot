@@ -16,7 +16,7 @@ It can be used for automation test, game bot or even tricking friends into think
   1. go (cd) to the directory root of this app
   1. command `npm install`
   1. command `node input` to start recording
-  1. stroke `tab` key to stop recording
+  1. Press **Tab** key to stop recording (you can change this setting in the input.js)
   1. exit the recording by press `ctrl+c`
   1. command `node output` to start automation
   
