@@ -10,6 +10,9 @@ It can be used for automation test, game bot or even tricking friends into think
 
 *Instruction video will be uploaded soon.*
 
+## Demo Video
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/utqzZF7yDpY/0.jpg)](https://youtu.be/utqzZF7yDpY "Mirror Bot Demo")
+
 ## Usage:
 
   1. `git clone` this app
