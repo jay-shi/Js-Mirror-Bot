@@ -1,14 +1,12 @@
-# Mirror-Bot
+# Mirror-Bot (Building stage)
 
 ***
 
 **This NodeJs-based project can record keystroke, mouseclick and mousedrag, and then create automated simulation.**
 
-It can be used for automation test, game bot or even tricking friends into thinking their computer has malware.
+It can be used for automation test.
 
 *NOTE: This app currently only works for MacOS, but the windows and linux version will sonn be implemented.*
-
-*Instruction video will be uploaded soon.*
 
 ## Demo Video
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/utqzZF7yDpY/0.jpg)](https://youtu.be/utqzZF7yDpY "Mirror Bot Demo")
@@ -32,6 +30,8 @@ It can be used for automation test, game bot or even tricking friends into think
   
   
 ## Credits:
+    
+ Credits to @D-LaRiviere for the great project titles.
 
  This project is built based on NodeJS v6.10.3. Thank nodejs team for making such amazing framework.
  

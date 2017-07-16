@@ -7,32 +7,35 @@ var captureMotion = JSON.parse(data);
 
 //start imitating user
 //skip the data used to initialize
-for(var j= 1; j< captureMotion.length; j++){
+module.export={ 
 
-    sleep.msleep(captureMotion[j][2]);
+    runBot: (function(){
+        for(var j= 1; j< captureMotion.length; j++){
 
-    robot.moveMouse(captureMotion[j][0],captureMotion[j][1]);
+            sleep.msleep(captureMotion[j][2]);
 
-    if(captureMotion[j][3] == 127){
+            robot.moveMouse(captureMotion[j][0],captureMotion[j][1]);
 
-        robot.mouseClick();
+            if(captureMotion[j][3] == 127){
 
-    }else if(captureMotion[j][3] == 128){
+                robot.mouseClick();
 
-        if(captureMotion[j-1][3] == 128){
+            }else if(captureMotion[j][3] == 128){
 
-            robot.mouseToggle('up','left');
-        }else{
+                if(captureMotion[j-1][3] == 128){
 
-            robot.mouseToggle('down','left');
-        }
+                    robot.mouseToggle('up','left');
 
-    }else{
+                }else{
 
-        robot.keyTap(conversion.keycodeConversion( captureMotion[j][3]).toLowerCase() );
+                    robot.mouseToggle('down','left');
+                }
+            }else{
+                robot.keyTap(conversion.keycodeConversion( captureMotion[j][3]).toLowerCase() );
 
-    }
-    
+            }
+        
+        };
+    })()
 };
 
-return console.log('\nprogram ended');

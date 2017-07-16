@@ -1,7 +1,7 @@
 {
-  "name": "bot",
+  "name": "Mirror-Bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mac version AutoHotkey that repeats simple desktop task over and over again",
   "main": "input.js",
   "dependencies": {
     "electron": "^1.6.7",
