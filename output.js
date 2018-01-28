@@ -9,28 +9,26 @@ var captureMotion = JSON.parse(data);
 //skip the data used to initialize
 for(var j= 1; j< captureMotion.length; j++){
 
-    sleep.msleep(captureMotion[j][2]);
+    motion = captureMotion[j];
+    sleep.msleep(motion.interval);
+    robot.moveMouse(motion.x, motion.y);
+    motionEvent = motion.rawcode;
 
-    robot.moveMouse(captureMotion[j][0],captureMotion[j][1]);
-
-    if(captureMotion[j][3] == 127){
-
+    if(motionEvent == 127) {
         robot.mouseClick();
+    } else if(motionEvent== 128) {
 
-    }else if(captureMotion[j][3] == 128){
+        preMotion = captureMotion[j-1];
 
-        if(captureMotion[j-1][3] == 128){
-
+        if(preMotion.rawcode == 128) {
             robot.mouseToggle('up','left');
-        }else{
-
+        } else {
             robot.mouseToggle('down','left');
         }
 
-    }else{
-
-        robot.keyTap(conversion.keycodeConversion( captureMotion[j][3]).toLowerCase() );
-
+    } else {
+        tapKey = conversion.keycodeConversion( motionEvent.toLowerCase());
+        robot.keyTap(tapKey);
     }
     
 };

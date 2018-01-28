@@ -1,9 +1,9 @@
-//this bot is not moving cursor continuously for performace's sake
-//this bot used robot.js and iohook.jsw
+// this bot is not moving cursor continuously for performace's sake
+// this bot used robot.js and iohook.jsw
 
 'use strict';
 
-//add required modules
+// add required modules
 var hook= require('iohook');
 var robot = require('robotjs');
 var events = require('events');
@@ -14,12 +14,16 @@ var fs = require('fs');
 var writeStream = fs.createWriteStream('bot.txt');
 
 
-//initialize a 4 row array to record coordinates, key character, interval time
-//x-coordinate, y-coordinate, time from last press, button character thats being pressed
-var captureMotion = [
-   
-    [600,350,1,'char']
-];
+// initialize a 4 row array to record coordinates, key character, interval time
+// x-coordinate, y-coordinate, time from last press, button character thats being pressed
+var captureMotion = [];
+
+var Motion = function(x, y, interval, rawcode) {
+    this.x = x;
+    this.y = y;
+    this.interval = interval;
+    this.rawcode = rawcode;
+}
 
 //----------------------------------------------------------------------//
 console.log('recording starts');
@@ -34,7 +38,7 @@ function getTime(){
 
 var baseTime = getTime();
 
-//binding event keydown and listener
+// binding event keydown and listener
 hook.on("keydown", (event)=>{
     
     mouse= robot.getMousePos();
@@ -43,19 +47,21 @@ hook.on("keydown", (event)=>{
 
     interval= currenttime - baseTime;
 
-    //prevent zero time
+    // prevent zero time
     if(interval == 0 ) interval =1;
 
-    //maping data to array
-    captureMotion.push([mouse.x,mouse.y,interval,event.rawcode]);
+    // maping data to array
+    // captureMotion.push([mouse.x,mouse.y,interval,event.rawcode]);
+    
+    captureMotion.push(new Motion(mouse.x, mouse.y, interval, event.rawcode));
 
     baseTime = getTime();
 
     dragFlag = true;
 
-    //check if user wanna stop recording and start botting
-	//press tab to stop 
-    if(event.rawcode == 48)eventEmitter.emit('stopListening');
+    // check if user wanna stop recording and start botting
+	// press tab to stop 
+    if(event.rawcode == 48) eventEmitter.emit('stopListening');
 
 });
 
@@ -67,11 +73,12 @@ hook.addListener("mousedown", (event)=>{
 
     interval= currenttime - baseTime;
 
-    //prevent zero time
+    // prevent zero time
     if(interval == 0 ) interval =1;
 
-    //set the keycode of mouseclick as 127
-    captureMotion.push([mouse.x,mouse.y,interval,127]);
+    // set the keycode of mouseclick as 127
+    // captureMotion.push([mouse.x,mouse.y,interval,127]);
+    captureMotion.push(new Motion(mouse.x, mouse.y, interval, 127));
 
     dragFlag = true;
 
@@ -80,7 +87,7 @@ hook.addListener("mousedown", (event)=>{
 
 hook.addListener('mousedrag', (event)=>{
     
-    //set the keycode of mousedrag as 128
+    // set the keycode of mousedrag as 128
     if(dragFlag == true){
 
         currenttime = getTime();
@@ -89,7 +96,11 @@ hook.addListener('mousedrag', (event)=>{
 
         if(interval == 0 ) interval =1;
 
-        captureMotion.push([event.x, event.y, interval ,127]); //change this to mouseclick temporily, since the mouseclick events often is listened wrongly as mousedrag
+        /*
+         * change this to mouseclick temporily, 
+         * since the mouseclick events often is listened wrongly as mousedrag
+        */
+        captureMotion.push(new Motion(event.x, event.y, interval ,127));
     }
 
     dragFlag = false;
@@ -97,17 +108,16 @@ hook.addListener('mousedrag', (event)=>{
 });
 
 
-//used to handle the mousedrag release
+// sed to handle the mousedrag release
 hook.addListener('mouseup', event=> {
 
     mouse= robot.getMousePos();
 
     if( dragFlag == false){
-
-        //prevent zero time
+        // prevent zero time
         if(interval == 0 ) interval =1;
-
-        captureMotion.push([mouse.x, mouse.y, 100 ,128]);
+        // captureMotion.push([mouse.x, mouse.y, 100 ,128]);
+        captureMotion.push(new Motion(event.x, event.y, 100, 128));
 
         baseTime = getTime();
     }
@@ -115,13 +125,13 @@ hook.addListener('mouseup', event=> {
 })
 
 
-//start listening
+// start listening
 hook.start();
 
 //------------------------------------------------------------//
 eventEmitter.once('stopListening',()=>{
     
-    //stop listening to events
+    // stop listening to events
     eventEmitter.removeAllListeners('keydown');
     eventEmitter.removeAllListeners('mousedown');
     eventEmitter.removeAllListeners('mouseup');
