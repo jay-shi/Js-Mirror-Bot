@@ -39,7 +39,7 @@ function getTime(){
 var baseTime = getTime();
 
 // binding event keydown and listener
-hook.on("keydown", (event)=>{
+hook.on("keydown", (event)=> { 
     
     mouse= robot.getMousePos();
 
@@ -50,45 +50,34 @@ hook.on("keydown", (event)=>{
     // prevent zero time
     if(interval == 0 ) interval =1;
 
-    // maping data to array
-    // captureMotion.push([mouse.x,mouse.y,interval,event.rawcode]);
-    
     captureMotion.push(new Motion(mouse.x, mouse.y, interval, event.rawcode));
 
     baseTime = getTime();
-
     dragFlag = true;
-
-    // check if user wanna stop recording and start botting
+    
 	// press tab to stop 
     if(event.rawcode == 48) eventEmitter.emit('stopListening');
 
 });
 
-hook.addListener("mousedown", (event)=>{
+hook.addListener("mousedown", (event)=> {
 
     mouse= robot.getMousePos();
-
     currenttime = getTime();
-
     interval= currenttime - baseTime;
-
-    // prevent zero time
     if(interval == 0 ) interval =1;
 
     // set the keycode of mouseclick as 127
-    // captureMotion.push([mouse.x,mouse.y,interval,127]);
     captureMotion.push(new Motion(mouse.x, mouse.y, interval, 127));
 
     dragFlag = true;
-
     baseTime = getTime();
 });
 
-hook.addListener('mousedrag', (event)=>{
+hook.addListener('mousedrag', (event)=> {
     
     // set the keycode of mousedrag as 128
-    if(dragFlag == true){
+    if(dragFlag == true) {
 
         currenttime = getTime();
 
@@ -116,9 +105,8 @@ hook.addListener('mouseup', event=> {
     if( dragFlag == false){
         // prevent zero time
         if(interval == 0 ) interval =1;
-        // captureMotion.push([mouse.x, mouse.y, 100 ,128]);
-        captureMotion.push(new Motion(event.x, event.y, 100, 128));
 
+        captureMotion.push(new Motion(event.x, event.y, 100, 128));
         baseTime = getTime();
     }
 

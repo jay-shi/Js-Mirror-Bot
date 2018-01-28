@@ -7,7 +7,7 @@ var captureMotion = JSON.parse(data);
 
 //start imitating user
 //skip the data used to initialize
-for(var j= 1; j< captureMotion.length; j++){
+for(var j= 1; j< captureMotion.length; j++) {
 
     motion = captureMotion[j];
     sleep.msleep(motion.interval);
@@ -27,10 +27,9 @@ for(var j= 1; j< captureMotion.length; j++){
         }
 
     } else {
-        tapKey = conversion.keycodeConversion( motionEvent.toLowerCase());
+        tapKey = conversion.keycodeConversion( motionEvent.toString().toLowerCase());
         robot.keyTap(tapKey);
     }
-    
 };
 
 return console.log('\nprogram ended');
