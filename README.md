@@ -32,16 +32,12 @@ It can be used for automation test, game bot or even tricking friends into think
   
   
 ## Credits:
-
- This project is built based on NodeJS v6.10.3. Thank nodejs team for making such amazing framework.
  
  The node modules/packages I used for this project are iohook, sleep and robotjs. 
  
  Thank @WilixLead, @OctalMage, @ErikDubbelboer for making such great modules/packages!
  
  **Here are the links of used modules/framework:** 
- 
- * [Nodejs](https://nodejs.org/en/)
   
  * [Iohook](https://github.com/WilixLead/iohook)
  
